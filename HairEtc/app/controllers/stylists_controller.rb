@@ -1,0 +1,3 @@
+class StylistsController < ActionController
+
+end
