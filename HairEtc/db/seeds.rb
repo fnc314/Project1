@@ -26,6 +26,7 @@ Service.create(name: "Hilights")
 Service.create(name: "Wax")
 Service.create(name: "Updo")
 Service.create(name: "Brazilian Blowout")
+Service.create(name: "Perm")
 
 Appserv.create(appointment_id: 1, service_id: 1)
 Appserv.create(appointment_id: 1, service_id: 2)
