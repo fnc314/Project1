@@ -4,3 +4,7 @@
 <p><%= @appointment.date %> <%= @appointment.time %> </p> <br>
 <p><% @services.each do |x| %> <%= x.name %> <% end %> </p> <br>
 <p><%= @stylist.first_name %> </p>
+
+<%= link_to "Sign Out", '/signout' %>
+<br>
+<%= link_to "Profile", "/clients/#{current_client.id}" %>
