@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-	#before_filter :signed_in_client, only: [:create, :new, :edit, :update]
+	before_filter :signed_in_client, only: [:new, :create, :show]
 
 	def new
 		@appointment = Appointment.new()

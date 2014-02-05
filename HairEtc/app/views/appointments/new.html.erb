@@ -8,7 +8,7 @@
 	<%= f.label :time, "At What Time?" %> <br>
 	<%= f.time_field :time %>
 	<br>
-	<%= f.label :stylist, "Stylist" %> <br>
+	<%= f.label :stylist, "Stylist (Select 1)" %> <br>
 	<%= collection_check_boxes :appointment, :stylist, Stylist.all, :id, :first_name %>
 	<br>
 	<%= f.label :services, "Services" %> <br>

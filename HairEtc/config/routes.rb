@@ -1,7 +1,7 @@
 HairEtc::Application.routes.draw do
-  resources :stylists, :appointments, :services, :clients 
+  resources :stylists, :appointments, :services, :clients, :sessions
 
-  root to: 'clients#new'
+  root to: 'clients#index'
 
   get '/signup', to: 'clients#new'
   get '/signout', to: 'sessions#destroy'

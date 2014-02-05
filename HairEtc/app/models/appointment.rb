@@ -3,4 +3,5 @@ class Appointment < ActiveRecord::Base
 	has_one :schedule
 	has_many :appservs
 	has_many :services, through: :appservs
+	belongs_to :client
 end

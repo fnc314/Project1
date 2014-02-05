@@ -1,11 +1,16 @@
 class ClientsController < ApplicationController
 
+	def index
+
+	end
+
 	def new
 		@client = Client.new()
 	end
 
 	def create
-		@client = Client.create(params[:client])
+		new_client = params.require(:client).permit(:first_name, :last_name, :email, :phone, :password, :password_confirmation)
+		@client = Client.new(new_client)
 		if @client.save
 			flash[:success] = "Welcome to Hair Etc..."
 			redirect_to @client
