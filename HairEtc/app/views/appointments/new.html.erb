@@ -8,11 +8,11 @@
 	<%= f.label :time, "At What Time?" %> <br>
 	<%= f.time_field :time %>
 	<br>
-	<%= f.label :stylist_id, "Stylist" %> <br>
-	<%= collection_check_boxes :schedule, :stylist_id, Stylist.all, :id, :first_name %>
+	<%= f.label :stylist, "Stylist" %> <br>
+	<%= collection_check_boxes :appointment, :stylist, Stylist.all, :id, :first_name %>
 	<br>
-	<%= f.label :service_id, "Services" %> <br>
-	<%= collection_check_boxes :appointment_services, :service_ids, Service.all, :id, :name %>
+	<%= f.label :services, "Services" %> <br>
+	<%= collection_check_boxes :appointment, :services, Service.all, :id, :name %>
 	<br>
 	<%= f.submit "Schedule Appointment", class: "btn" %>
 

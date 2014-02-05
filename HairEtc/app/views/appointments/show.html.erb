@@ -1,5 +1,6 @@
 <h1>Your appointment</h1>
 
 <p>Your appointment is as follows:</p>
-<p><%= @appointment.date %> <%= @appointment.time %> </p>
-<p><%= @appointment.stylist %>
+<p><%= @appointment.date %> <%= @appointment.time %> </p> <br>
+<p><% @services.each do |x| %> <%= x.name %> <% end %> </p> <br>
+<p><%= @stylist.first_name %> </p>
