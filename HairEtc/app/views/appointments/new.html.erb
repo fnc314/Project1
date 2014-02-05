@@ -2,23 +2,17 @@
 
 <%= form_for @appointment do |f| %>
 
-	<%= f.label :day, "What Day? (Monday - Saturday)" %> <br>
-	<%= f.text_field :day %>
+	<%= f.label :date, "When?" %> <br>
+	<%= f.date_field :date %>
 	<br>
-	<%= f.label :date, "What Date? (1 - 31)" %> <br>
-	<%= f.number_field :date %>
-	<br>
-	<%= f.label :month, "What Month? (January - December)" %> <br>
-	<%= f.text_field :month %>
-	<br>
-	<%= f.label :year, "Year" %> <br>
-	<%= f.number_field :year %>
+	<%= f.label :time, "At What Time?" %> <br>
+	<%= f.time_field :time %>
 	<br>
 	<%= f.label :stylist_id, "Stylist" %> <br>
-	<%= collection_check_boxes :appointment, :stylist_id, Stylist.all, :id, :first_name %>
+	<%= collection_check_boxes :schedule, :stylist_id, Stylist.all, :id, :first_name %>
 	<br>
 	<%= f.label :service_id, "Services" %> <br>
-	<%= collection_check_boxes :appointment, :services, Service.all, :id, :name %>
+	<%= collection_check_boxes :appointment_services, :service_ids, Service.all, :id, :name %>
 	<br>
 	<%= f.submit "Schedule Appointment", class: "btn" %>
 

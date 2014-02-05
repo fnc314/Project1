@@ -11,19 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140203235227) do
+ActiveRecord::Schema.define(version: 20140205013702) do
 
   create_table "appointments", force: true do |t|
-    t.string   "day"
-    t.integer  "date"
-    t.string   "month"
-    t.integer  "year"
+    t.date     "date"
+    t.time     "time"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "stylist_id"
   end
 
-  add_index "appointments", ["stylist_id"], name: "index_appointments_on_stylist_id"
+  create_table "appservs", force: true do |t|
+    t.integer  "appointment_id"
+    t.integer  "service_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "appservs", ["appointment_id"], name: "index_appservs_on_appointment_id"
+  add_index "appservs", ["service_id"], name: "index_appservs_on_service_id"
 
   create_table "clients", force: true do |t|
     t.string   "first_name"
@@ -35,6 +40,16 @@ ActiveRecord::Schema.define(version: 20140203235227) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "schedules", force: true do |t|
+    t.integer  "stylist_id"
+    t.integer  "appointment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "schedules", ["appointment_id"], name: "index_schedules_on_appointment_id"
+  add_index "schedules", ["stylist_id"], name: "index_schedules_on_stylist_id"
 
   create_table "services", force: true do |t|
     t.string   "name"

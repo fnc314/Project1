@@ -1,4 +1,6 @@
 class Appointment < ActiveRecord::Base
-	belongs_to :stylist
-	has_many :services
+	has_one :stylist, through: :schedule
+	has_one :schedule
+	has_many :appservs
+	has_many :services, through: :appservs
 end
