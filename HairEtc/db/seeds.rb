@@ -14,7 +14,7 @@ Stylist.create(first_name: "Stacy", last_name: "Funwella", phone: 4127219550)
 
 Appointment.create(date: "Wed, 05 Feb 2014", time: "13:00:00 UTC", client_id: 1)
 Appointment.create(date: "Wed, 05 Feb 2014", time: "13:00:00 UTC", client_id: 1)
-Appointment.create(date: "Wed, 05 Feb 2014", time: "13:00:00 UTC", client_id: 1)
+Appointment.create(date: "Wed, 05 Feb 2014", time: "13:00:00 UTC", client_id: 2)
 
 Schedule.create(stylist_id: 1, appointment_id: 1)
 Schedule.create(stylist_id: 2, appointment_id: 2)
@@ -35,3 +35,4 @@ Appserv.create(appointment_id: 3, service_id: 5)
 Appserv.create(appointment_id: 3, service_id: 6)
 
 Client.create(first_name: "Franco", last_name: "Colaizzi", phone: 4127219550, email: "fnc314@gmail.com", password: "asdfgh", password_confirmation: "asdfgh")
+Client.create(first_name: "Nina", last_name: "Pacifico", phone: 1234567890, email: "npac@gmail.com", password: "asdfgh", password_confirmation: "asdfgh")

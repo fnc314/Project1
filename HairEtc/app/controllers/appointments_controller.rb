@@ -12,8 +12,8 @@ class AppointmentsController < ApplicationController
 			redirect_to new_appointment_path
 		else
 			appointment = Appointment.create(date: params[:appointment][:date], time: params[:appointment][:time])
-			params[:appointment][:stylist].each {|x| appointment.stylist = Stylist.find(x) if x != "" }
-			params[:appointment][:services].each {|x| appointment.services.push(Service.find(x)) if x != "" }
+			params[:appointment][:stylist].each { |x| appointment.stylist = Stylist.find(x) if x != "" }
+			params[:appointment][:services].each { |x| appointment.services.push(Service.find(x)) if x != "" }
 			redirect_to appointment
 		end
 
