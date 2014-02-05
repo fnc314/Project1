@@ -13,9 +13,9 @@ class ClientsController < ApplicationController
 		@client = Client.new(new_client)
 		if @client.save
 			flash[:success] = "Welcome to Hair Etc..."
-			redirect_to @client
+			redirect_to client_path
 		else
-			render 'new'
+			redirect_to '/signup'
 		end
 	end
 
