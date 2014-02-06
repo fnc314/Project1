@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20140205013702) do
   create_table "clients", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "phone"
+    t.string  "phone"
     t.string   "email"
     t.string   "password_digest"
     t.string   "remember_token"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20140205013702) do
   create_table "stylists", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "phone"
+    t.string  "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
