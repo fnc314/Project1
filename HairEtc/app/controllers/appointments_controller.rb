@@ -14,11 +14,12 @@ class AppointmentsController < ApplicationController
 			flash.now[:warning] = "Please Fill Out Entire Form"
 			redirect_to new_appointment_path
 		else
-			# @current_client = Client.find_by_remember_token(cookies[:remember_token])
-			appointment = Appointment.create(date: params[:appointment][:date], time: params[:appointment][:time], client_id: current_client.id)
-			params[:appointment][:stylist].each { |x| appointment.stylist = Stylist.find(x) if x != "" }
-			params[:appointment][:services].each { |x| appointment.services.push(Service.find(x)) if x != "" }
-			redirect_to appointment
+			@current_client = current_client
+			@appointment = Appointment.create(date: params[:appointment][:date], time: params[:appointment][:time], client_id: current_client.id)
+			params[:appointment][:stylist].each { |x| @appointment.stylist = Stylist.find(x) if x != "" }
+			params[:appointment][:services].each { |x| @appointment.services.push(Service.find(x)) if x != "" }
+			send_text_message
+			redirect_to @appointment
 		end
 
 	end
@@ -29,6 +30,24 @@ class AppointmentsController < ApplicationController
 		@stylist = @appointment.stylist
 	end
 
+	private
+
+	def send_text_message
+    number_to_send_to = @appointment.stylist.phone
+ 
+    twilio_sid = ENV['TWILIO_SID'] 
+    twilio_token = ENV['TWILIO_TOKEN']
+    twilio_phone_number = ENV['TWILIO_PHONE']
+ 
+    @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
+ 
+    @twilio_client.account.sms.messages.create(
+      :from => "+1#{twilio_phone_number}",
+      :to => number_to_send_to,
+      :body => "#{current_client.first_name} #{current_client.last_name} would like to schedule an appointment on #{l(@appointment.date, format: :default)} at #{l(@appointment.time, format: :default)} for SERVICES.  Please contact #{current_client.phone}."
+    )
+  end
 
 
 end
+	

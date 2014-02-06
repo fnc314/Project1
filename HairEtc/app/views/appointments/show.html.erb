@@ -1,8 +1,8 @@
 <h1>Your appointment</h1>
 <%= current_client.first_name %>
 <p>Your appointment is as follows:</p>
-<p><%= @appointment.date %> <%= @appointment.time %> </p> <br>
-<p><% @services.each do |x| %> <%= x.name %> <% end %> </p> <br>
+<p><%= l(@appointment.date, format: :default) %> <br> <%= l(@appointment.time, format: :default) %> </p> <br>
+<p>For:<br><% @services.each do |x| %><%= x.name %><br> <% end %> </p> <br>
 <p><%= @stylist.first_name %> </p>
 
 <%= link_to "Sign Out", '/signout' %>
