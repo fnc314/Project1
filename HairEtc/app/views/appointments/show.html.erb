@@ -3,8 +3,4 @@
 <p>Your appointment is as follows:</p>
 <p><%= l(@appointment.date, format: :default) %> <br> <%= l(@appointment.time, format: :default) %> </p> <br>
 <p>For:<br><% @services.each do |x| %><%= x.name %><br> <% end %> </p> <br>
-<p><%= @stylist.first_name %> </p>
-
-<%= link_to "Sign Out", '/signout' %>
-<br>
-<%= link_to "Profile", "/clients/#{current_client.id}" %>
+<p>With:<br><%= @stylist.first_name %> </p>

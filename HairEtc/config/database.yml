@@ -3,11 +3,16 @@
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: hairetc_development
+#   pool: 5
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: hairetc_development
+  adapter: sqlite3
+  database: db/development.sqlite3
   pool: 5
+  timeout: 5000
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -15,11 +20,11 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: hairetc_test
+  database: HairEtc_test
   pool: 5
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: hairetc_production
+  database: HairEtc_production
   pool: 5

@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+ .welcome_banner {
+ 	text-align: center;
+ 	font-size: 75px;
+ }

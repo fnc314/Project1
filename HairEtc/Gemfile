@@ -46,6 +46,8 @@ group :development do
 	gem 'awesome_print'
 
 	gem 'pry'
+
+	gem 'sqlite3'
 end
 
 gem 'dotenv-rails'

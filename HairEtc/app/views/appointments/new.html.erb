@@ -8,8 +8,11 @@
 	<%= f.label :time, "At What Time?" %> <br>
 	<%= f.time_field :time %>
 	<br>
-	<%= f.label :stylist, "Stylist (Select 1)" %> <br>
-	<%= collection_check_boxes :appointment, :stylist, Stylist.all, :id, :first_name %>
+	<% Stylist.all.each do |x| %> <br>
+	  <%= radio_button_tag(:stylist, "#{x.id}") %>
+	  <%= f.label :stylist, "#{x.first_name}" %>
+	<% end %>
+	<br>
 	<br>
 	<%= f.label :services, "Services" %> <br>
 	<%= collection_check_boxes :appointment, :services, Service.all, :id, :name %>
@@ -17,3 +20,6 @@
 	<%= f.submit "Schedule Appointment", class: "btn" %>
 
 <% end %>
+
+
+

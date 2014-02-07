@@ -1,3 +1,3 @@
-class StylistsController < ActionController
+class StylistsController < ApplicationController
 
 end

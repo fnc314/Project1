@@ -16,7 +16,8 @@ class AppointmentsController < ApplicationController
 		else
 			@current_client = current_client
 			@appointment = Appointment.create(date: params[:appointment][:date], time: params[:appointment][:time], client_id: current_client.id)
-			params[:appointment][:stylist].each { |x| @appointment.stylist = Stylist.find(x) if x != "" }
+			# params[:appointment][:stylist].each { |x| @appointment.stylist = Stylist.find(x) if x != "" }
+			@appointment.stylist = Stylist.find(params[:stylist])
 			params[:appointment][:services].each { |x| @appointment.services.push(Service.find(x)) if x != "" }
 			send_text_message
 			redirect_to @appointment
@@ -44,10 +45,17 @@ class AppointmentsController < ApplicationController
     @twilio_client.account.sms.messages.create(
       :from => "+1#{twilio_phone_number}",
       :to => number_to_send_to,
-      :body => "#{current_client.first_name} #{current_client.last_name} would like to schedule an appointment on #{l(@appointment.date, format: :default)} at #{l(@appointment.time, format: :default)} for SERVICES.  Please contact #{current_client.phone}."
+      :body => "#{current_client.first_name} #{current_client.last_name} wants to schedule an appointment on #{l(@appointment.date, format: :default)} at #{l(@appointment.time, format: :default)} for #{list_services}.  Phone: #{current_client.phone}."
     )
   end
 
+  def list_services
+  	services = ""
+  	@appointment.services.each do |x|
+  		services += "#{x.name} "
+  	end
+  	return services
+  end
 
 end
 	

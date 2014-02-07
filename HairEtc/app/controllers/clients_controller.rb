@@ -11,6 +11,7 @@ class ClientsController < ApplicationController
 	def create
 		@client = Client.create(client_params)
 		if @client
+			sign_in(@client)
 			redirect_to client_path(@client.id)
 			flash[:success] = "Welcome to Hair Etc..."
 		else

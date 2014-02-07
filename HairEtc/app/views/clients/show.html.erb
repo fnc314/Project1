@@ -5,7 +5,7 @@
 	<%= @client.last_name %> <br>
 	<%= @client.phone %> <br>
 	<%= @client.email %> <br>
-
+	<br>
 <table class="table">
 
 	<th>
@@ -23,7 +23,7 @@
 		<tr>
 
 			<td>
-				<%= x.date %> AT <%= x.time %>
+				<%= l(x.date, format: :default) %> AT <%= l(x.time, format: :default) %>
 			</td>
 			<td>
 				<% x.services.each do |y| %> <%= y.name %> <% end %>
@@ -39,6 +39,3 @@
 </table>
 
 
-<%= link_to 'Sign Out', "/signout" %>
-<br>
-<%= link_to 'Create An Appointment', new_appointment_path %>
