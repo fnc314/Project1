@@ -1,9 +1,11 @@
-Hair Etc App
-========
+# Hair Etc App
+
+The Assignment
+====
+This is my first project for General Assembly, Web Development Immersive.  We were tasked to create a web app (Ruby on Rails) that we host publically (on Heroku), integrating multiple model relationships and an API.
 
 Backstory
 ====
-
 My mother owns and operates a small hair salon in Pittsburgh, Pennsylvania.  In an attempt to bring her small business into the twenty-first century, I envisioned a way to enhance her business and the interaction with her clients.
 
 Description
@@ -18,14 +20,33 @@ Due to the "mom & pop" nature of the business, there is a tight bond between a s
 
 The app is not designed to be a high-traffic site.  It is, rather, a tool and reference source to help customers simplify the process of making an appointment, whenever they want/need.
 
+External sources
+====
+- [Twilio](www.twilio.com) is used for sending text messages.
+- [Bootstrap CSS](www.getbootstrap.com)
+
 Planned future expansion
 ====
-I plan on introducing a few extra features for this app, including:
+I plan on gradually introducing these upgrades:
 
 - ActionMailer use for appoinment creation (sent to user) as a confirmation (to be sent after text message is issued)
 - Implementation of [Devise](https://github.com/plataformatec/devise) gem
+- Ability to cancel appointments (corresponding emails and text messages also issued)
+- Incorporation of appointment cost approximations (prices are based on service(s) and totaled after completed)
+- Allowing the user to set their default preferred stylist (more personalized experience)
+- Including algorithms attempting to predict desired services
+- Photo catalog of pictures taken before and after services are applied (allowing customer to recall if they were pleased with a specific set of services)
+- Implementation of [ActiveAdmin](https://github.com/gregbell/active_admin)
+- Gradual migration of appointment management operations at the business level
+- Financial analytics information based on appointments
+- Popularity statistics about services/stylists
 
-Therefore, I was able to design th
+Experience
+====
+When I came up with the idea for this app I knew I wanted to design something that was simple to use, and even simpler to understand.  The goal was to provide a fast, mobile-ready product in five to seven days with the ability to manage a customer's appoinments, allow them to create appointments, and send text messages to appropriate stylists.
 
-The goal of this app was to develop an online portal through which 
-Project1 from GA_WDI
+I ran into a few problems with my models in the beginning.  These issues arose because I wanted to incorporate static, reference models (containing constant information such as Stylist information and Services offered) and still have many-to-many relationships with these models.  Therefore, I had to incorporate extra through-tables to make sure I could keep my reference tables un-touched.  Once those issues were settled the rest of the app fell into place quite nicely.  Integration with Twilio was a few hours of work, most spent on deciding the formatting and wording of the text message.
+
+The goal of having a fast, responsive site meant the sacrifice of extensive styling.  Also, implementing complex designs (such as a parallax effect) makes mobile design a more difficult task.  Time constraints lead me to prioritize the backend logic (and therefore functionality) and thus design took the sacrifice.
+
+Overall I liked the project and cannot wait to be able to take my time refactoring and improving the readability of the code.
