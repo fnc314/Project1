@@ -14,6 +14,10 @@ The goal of this app is to provide an online portal to the customers of Hair Etc
 
 The clients can also view their appointment history in a clean, informative table.
 
+## Live App
+
+[HairEtcApp](https://afternoon-meadow-8655.herokuapp.com/)
+
 ## Why the app is the way it is
 
 Due to the "mom & pop" nature of the business, there is a tight bond between a stylist and their customers.  Therefore, a minimally intrusive service was all that was necessary to develop a successful product.  I wanted to give customers a quick way to schedule their next hair appointment, including a direct feedback loop (the stylist's text message) should there be a problem meeting the customer's request.
